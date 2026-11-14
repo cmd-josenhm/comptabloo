@@ -1,0 +1,64 @@
+{
+  "name": "comptabloo",
+  "productName": "COMPTABLOO",
+  "version": "1.0.0",
+  "description": "COMPTABLOO — Logiciel de comptabilité simple pour les PME. 100% hors ligne, aucune donnée envoyée sur Internet.",
+  "author": {
+    "name": "COMPTABLOO",
+    "email": "contact@comptabloo.app"
+  },
+  "license": "MIT",
+  "main": "src/main/main.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "electron .",
+    "serve": "node scripts/serve.js",
+    "test": "node --test tests/*.test.js",
+    "pack:win": "electron-builder --win --x64 --dir",
+    "dist:win": "electron-builder --win nsis --x64",
+    "dist:win:portable": "electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "^45.3.2",
+    "electron-builder": "^26.18.0",
+    "jsdom": "^31.0.1"
+  },
+  "build": {
+    "appId": "app.comptabloo.desktop",
+    "productName": "COMPTABLOO",
+    "copyright": "Copyright © 2026 COMPTABLOO",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "LICENSE",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "COMPTABLOO",
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "COMPTABLOO-Setup-${version}-x64.exe"
+    }
+  }
+}

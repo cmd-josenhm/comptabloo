@@ -1,0 +1,19 @@
+# Dépendances
+node_modules/
+
+# Artefacts de build (installateurs)
+dist/
+out/
+
+# Données locales de test
+*.local-data.json
+
+# Système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
